@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class SimpleInterestTest {
     @Test
     public void testCalculate() {
-        double expected = 999.0;
+        double expected = 100.0;
         double actual = SimpleInterest.calculate(1000.0, 5.0, 2.0);
         assertEquals(expected, actual, 0.001, "The simple interest calculation is incorrect.");
     }
