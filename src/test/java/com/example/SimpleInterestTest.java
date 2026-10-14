@@ -1,7 +1,6 @@
 package com.example;
-import org.junit.Test;
-import static org.junit.Assert.*;
-
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 public class SimpleInterestTest {
     @Test
     public void testCalculate() {
@@ -12,6 +11,12 @@ public class SimpleInterestTest {
     @Test
     public void testCalculateWithZero() {
         double actual = SimpleInterest.calculate(0.0, 5.0, 2.0);
-        assertEquals(0.0, actual, 0.001);
+        assertEquals(0.0, actual, 0.001, "Simple interest with zero principal should be 0.");
+    }
+    @Test
+    public void testNegativeValues() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            SimpleInterest.calculate(-1000.0, 5.0, 2.0);
+        }, "Should throw an exception for negative inputs.");
     }
 }
